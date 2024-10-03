@@ -4,6 +4,8 @@ import cors from 'cors';
 import { config } from 'dotenv';
 import router from './Router/Route.js';
 
+import connect from './Database/Connection.js';
+
 const app = express();
 
 /** App Middleware */
@@ -14,6 +16,7 @@ config();
 
 /** Application port */
 const Port = process.env.PORT || 8080;
+
 
 /** Routes */
 
@@ -28,7 +31,19 @@ app.get('/',(req, res) => {
   }
 })
 
-app.listen(Port, () => {
-  console.log(`Server connected to http://localhost:${Port}`);
+/** Start server only when we have a valid connection */
+
+connect().then(() => {
+  try {
+    app.listen(Port, () => {
+      console.log(`Server connected to http://localhost:${Port}`);
+    })
+  } catch (error) {
+    console.log("Cannot connect to the server");
+    
+  }
+}).catch(error => {
+  console.log("Invalid Database Connection");
   
 })
+

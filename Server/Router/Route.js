@@ -19,6 +19,8 @@ router.route("/questions")
 
 router.route("/result")
     .get(Controller.GetResult)
+    .post(Controller.StoreResult)
+    .delete(Controller.DropResult)
 
 
 export default router;
