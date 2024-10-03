@@ -5,6 +5,14 @@
   text-align: center;
 }
 
+.container{
+  display: block;
+  position: relative;
+  margin: 40px auto;
+  height: auto;
+  width: 800px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -39,4 +47,20 @@
 
 .read-the-docs {
   color: #888;
+}
+
+input[type=radio]:checked ~ .check {
+  border: 5px solid var(--primary-color);
+}
+
+input[type=radio]:checked ~ .check::before {
+  background: var(--primary-color);
+}
+
+.checked{
+  border: 5px solid var(--primary-color) !important;
+}
+
+.checked::before{
+  background: var(--primary-color);
 }
