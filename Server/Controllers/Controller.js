@@ -18,13 +18,15 @@ export async function GetQuestions(req, res) {
 
 export async function InsertQuestions(req, res) {
   try {
-    Questions.insertMany({ questions, answers}, function (err, data){
-      res.json({ msg: "Data Saved Successfully...!"})
-    })
+    Questions.insertMany({ questions , answers})
+      .then( function (err, data){
+        res.json({ msg: "Data Saved Successfully...!"})
+      })
   } catch (error) {
     res.json({ error })
   }
 }
+
 
 /** Delete all questions */
 
@@ -39,15 +41,36 @@ export async function DropQuestions(req, res) {
 
 /** Get all result */
 export async function GetResult(req, res) {
-  res.json("Result api get request")
+  try {
+    const R = await Results.find();
+    res.json(R)
+  } catch (error) {
+    res.json({ error})
+  }
 }
 
 /** Post all results */
 export async function StoreResult(req, res) {
-  res.json("Result api post request")
+  try {
+    const { username, result, attempts, points, achieved } = req.body;
+    if(!username && !result) throw new Error('Data Not Provided...!');
+
+    Results.create({ username, result, attempts, points, achieved })
+      .then( function(err, data){
+        res.json({ msg: "Result Saved Successfully...!"})
+      })
+
+  } catch (error) {
+    res.json({ error})
+  }
 }
 
 /** Delete all results */
 export async function DropResult(req, res) {
-  res.json("Result api delete request")
+  try {
+    await Results.deleteMany();
+    res.json({ msg: "Result Deleted Successfully...!" })
+  } catch (error) {
+    res.json({ error })
+  }
 }
