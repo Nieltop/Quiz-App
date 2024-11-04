@@ -3,6 +3,11 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  border: 2px solid white ;
+  
+}
+body{
+  background-color: #200804;
 }
 
 .container{
@@ -11,9 +16,13 @@
   margin: 40px auto;
   height: auto;
   width: 800px;
+  background-color: rgba(172, 5, 5, 0.986);
+  color: #888;
+  /* background-color: transparent; */
+  
 }
 
-.logo {
+ .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -63,4 +72,393 @@ input[type=radio]:checked ~ .check::before {
 
 .checked::before{
   background: var(--primary-color);
+}
+
+table{
+  width: 100%;
+}
+
+.table-header{
+  color: #cecece;
+  font-size: 1.1em;
+  text-align: center;
+  background-color: black;
+  padding: 18px 0;
+}
+
+.table-body{
+  font-size: 1.1em;
+  text-align: center;
+  background-color: #d8d8d8;
+  padding: 18px 0;
+
+}
+
+.table-header > tr > td{
+  border: 1px solid #faff5a;
+}
+
+.flex-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #cecece;
+  padding: 3em 4em;
+  gap: 1em;
+
+}
+
+.container .flex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .flex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .flex span{
+  font-size: 1.4em;
+  color: #cecece;
+}
+
+.container .flex span.achive{
+  font-weight: bold;
+  color: #ff2a66;
+ 
+}
+
+.grid{
+  display:flex;
+  justify-content: center;
+  gap: 20%;
+}
+.grid :hover{
+  color: white;
+  border: 2px solid yellow;
+  background-color: rgb(34, 4, 4);
+}
+
+
+/* loader */
+.loader {
+  position: relative;
+  width: 2.5em;
+  height: 2.5em;
+  transform: rotate(165deg);
+ }
+ 
+ .loader:before, .loader:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block; 
+   width: 0.5em;
+  height: 0.5em;
+  border-radius: 0.25em;
+  transform: translate(-50%, -50%);
+}
+
+.loader:before {
+  animation: before8 2s infinite;
+}
+
+.loader:after {
+  animation: after6 2s infinite;
+}
+
+@keyframes before8 {
+  0% { 
+  width: 0.5em;
+  box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+  }
+
+  35% {
+  width: 2.5em;
+  box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
+  }
+
+  70% {
+  width: 0.5em;
+  box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
+  }
+
+  100% {
+  box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+  }
+}
+
+@keyframes after6 {
+  0% { 
+  height: 0.5em;
+  box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+  }
+
+  35% {
+  height: 2.5em;
+  box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
+  }
+
+  70% {
+  height: 0.5em;
+  box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
+  }
+
+  100% {
+  box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+  }
+}
+
+.loader {
+  position: absolute;
+  top: calc(50% - 1.25em);
+  left: calc(50% - 1.25em);
+}
+
+.Quize{
+  background-color: rgb(14, 4, 4);
+  border: 2px solid white;
+  padding: 4px 30px;
+
+}
+
+.main{
+  background-color: #200804;
+  border: 2px solid white;
+}
+
+
+/* Result */
+
+/* General styles */
+
+/* Base styling for container and elements */
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+  font-size: 20px;
+  padding: 20px;
+  background-color: rgba(128, 128, 128, 0.027);
+  color: white;
+  border-radius: 10px solid white;
+  box-shadow: 0px 4px 12px rgba(221, 218, 218, 0.712);
+  text-align: center;
+}
+
+
+/* Styling for the title */
+.title {
+  font-size: 2em;
+  margin-bottom: 15px;
+  color: #61dafb;
+}
+
+/* Ordered list styling */
+ol {
+  text-align: left;
+  padding-left: 20px;
+  margin: 20px 0;
+}
+
+li {
+  margin: 10px 0;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+/* Input styling */
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Button styling */
+.start .btn {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 1em;
+  color: white;
+  background-color: rgb(48, 9, 9);
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.start .btn:hover {
+  background-color: rgb(48, 9, 9);
+  border: 2px solid yellow;
+}
+
+/* Responsive styling for laptops */
+@media (min-width: 768px) {
+  .container {
+      max-width: 60%;
+  }
+  
+  .title {
+      font-size: 2.5em;
+  }
+  
+  li {
+      font-size: 1.1em;
+  }
+  
+  .start .btn {
+      font-size: 1.1em;
+      padding: 15px 25px;
+  }
+}
+
+/* Responsive styling for mobile devices */
+@media (max-width: 767px) {
+  .container {
+      padding: 15px;
+      margin: 0 10px;
+  }
+
+  .title {
+      font-size: 1.8em;
+  }
+
+  li {
+      font-size: 0.95em;
+  }
+
+  .start .btn {
+      font-size: 1em;
+      padding: 10px 20px;
+  }
+
+  input[type="text"] {
+      font-size: 0.9em;
+  }
+}
+
+/* Start Button */
+
+.show {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: transparent;
+  border-radius: 57% 43% 37% 63% / 45% 52% 48% 52%;
+  box-shadow: inset 10px 10px 10px rgba(0, 0, 0, 0.05), 
+                      15px 25px 10px rgba(0, 0, 0, 0.1), 
+                      15px 20px 20px rgba(0, 0, 0, 0.05), 
+                inset -10px -10px 15px rgba(237, 237, 237, 0.9);
+  animation: anim 1s infinite alternate;
+}
+
+.show:before {
+  content: '';
+  position: absolute;
+  left: 25px;
+  top: 35px;
+  width: 20px;
+  height: 20px;
+  border-radius: 42% 58% 37% 63% / 40% 43% 57% 60%;
+  background: #FFF
+}
+
+.show:after {
+  content: '';
+  position: absolute;
+  left: 60px;
+  top: 25px;
+  width: 10px;
+  height: 10px;
+  border-radius: 42% 58% 37% 63% / 40% 43% 57% 60%;
+  background: #ffffff
+}
+
+@keyframes anim {
+  0% {
+    transform: translateY(0);
+    height: 150px;
+    width: 150px;
+  }
+
+  100% {
+    transform: translateY(40px);
+    height: 135px;
+    width: 160px;
+  }
+}
+
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  background-color: rgb(48, 9, 9);
+
+}
+
+/* plus sign */
+.sign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: white;
+}
+/* text */
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+/* hover effect on button width */
+.Btn:hover {
+  width: 125px;
+  border-radius: 4px;
+  transition-duration: .3s;
+  background-color: rgb(48, 9, 9);
+  border: 2px solid yellow;
+}
+
+.Btn:hover .sign {
+  display: none ;
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 20px;
+}
+/* hover effect button's text */
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+/* button click effect*/
+.Btn:active {
+  transform: translate(2px ,2px);
 }
