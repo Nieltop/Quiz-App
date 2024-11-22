@@ -35,8 +35,7 @@ const dispatch = useDispatch()
   function onSelect(i){
         onChecked(i)
         setChecked(i)
-         dispatch(updateResult({trace, checked}))
-    
+        dispatch(updateResult({trace, checked}));
   }
 
   if(isLoding) return <h3 className='loader'>loading...</h3>

@@ -218,15 +218,17 @@ table{
 }
 
 .Quize{
-  background-color: rgb(14, 4, 4);
+  background-color: rgb(34, 6, 6);
   border: 2px solid white;
   padding: 4px 30px;
+  color: white;
 
 }
 
 .main{
   background-color: #200804;
   border: 2px solid white;
+  color: white;
 }
 
 
@@ -285,7 +287,7 @@ input[type="text"] {
   padding: 12px 20px;
   font-size: 1em;
   color: white;
-  background-color: rgb(48, 9, 9);
+  background-color: rgb(37, 5, 5);
   border: none;
   border-radius: 5px;
   text-decoration: none;
@@ -431,6 +433,7 @@ input[type="text"] {
   right: 0%;
   width: 0%;
   opacity: 0;
+  left: 13px;
   color: white;
   font-size: 1.2em;
   font-weight: 600;

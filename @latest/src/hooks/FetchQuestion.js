@@ -3,10 +3,10 @@ import * as Action from '../redux/question_reducer'
 import data, { answers } from '../database/data'
 
 
-/*redux action */
+
 import { useDispatch } from 'react-redux'
 
-/***fetch question hook to fetch api data and se value to store*/
+
 export const useFetchQuestion = () =>{
     const dispatch = useDispatch();
     const [getData, setGetData] = useState({isLoding : false, apiData : [], serverError: null})
@@ -21,10 +21,10 @@ export const useFetchQuestion = () =>{
                 let question = await data;
 
                 if(question.length > 0){
-                    setGetData(prev => ({...prev, isLoding : false}));
+                    setGetData(prev => ({...prev, isLoding : false})); 
                     setGetData(prev => ({...prev, apiData : {question, answers}}));
                     
-                    /*Dispatch an action*/
+                    
                     dispatch(Action.startExampleAction({question, answers}))
                 }else{
                     throw new Error("No Question Avaliable")

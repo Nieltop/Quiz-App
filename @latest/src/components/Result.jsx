@@ -45,7 +45,7 @@ const Result = () => {
           <span className='bold'>{totalPoints || 0}</span>
       </div>
       <div className='flex'>
-          <span>Total Qustions : </span>
+          <span>Total Questions : </span>
           <span className='bold'>{queue.length || 0}</span>
       </div>
       <div className='flex'>
@@ -68,7 +68,7 @@ const Result = () => {
 
       <div className="container">
         {/* Result table */}
-        <ResultTable></ResultTable>
+        <ResultTable ></ResultTable>
       </div>
     </div>
     

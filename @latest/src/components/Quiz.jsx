@@ -1,74 +1,72 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react';
 import Questions from './Questions';
 import { MoveNextQuestion, MovePrevQuestion } from '../hooks/FetchQuestion';
 import { PushAnswer } from '../hooks/setResult';
-/*Redux */ 
+
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+
 const Quiz = () => {
+  const [check, setChecked] = useState(undefined);
+  const result = useSelector((state) => state.result.result);
+  const { queue, trace } = useSelector((state) => state.questions);
+  const dispatch = useDispatch();
 
-  const [check, setChecked] = useState(undefined)
-
-  const result = useSelector(state => state.result.result);
-  const { queue, trace } = useSelector(state => state.questions)
-  const dispatch = useDispatch()
-
-  // useEffect(() => {
-  //   console.log(result);
-  // })
-  
-  /* next button event handler*/ 
-  function onNext(){
-    // console.log('On next click');
-
-    if(trace < queue.length){
-      /*Update the trace value by one using move next action*/ 
-      dispatch(MoveNextQuestion());
-
-      /*insert a new result in the array*/ 
-      if(result.length <= trace){
-        dispatch(PushAnswer(check))
+  function onNext() {
+    if (trace < queue.length) {
+      
+      if (result[trace] !== check) {
+        dispatch(PushAnswer(check));
       }
+
+   
+      dispatch(MoveNextQuestion());
     }
 
-    //** reset the value */
-    setChecked(undefined) 
+    setChecked(undefined);
   }
 
-  /* prev button event handler*/ 
-  function onPrev(){
-    // console.log('On onPrev click');
+ 
+  function onPrev() {
+    if (trace > 0) {
+      dispatch(MovePrevQuestion());
 
-    if(trace > 0){
-      /*Update the trace value by one using move prev action*/ 
-      dispatch(MovePrevQuestion())
+      
+      setChecked(result[trace - 1]);
     }
   }
 
-  /* checkbox handler */ 
-  function onChecked(check){
-    // console.log(check);
-    setChecked(check)
+
+  function onChecked(check) {
+    setChecked(check);
   }
 
-  /*finished exam after the last question*/
-  
-  if(result.length && result.length >= queue.length){
-    return <Navigate to={'/result'} replace="true" > </Navigate>
+  if (result.length && result.length >= queue.length) {
+    return <Navigate to={'/result'} replace="true" />;
   }
 
   return (
-    <div className='container'>
+    <div className="container">
       <h1 className='Quize'>Quiz Application</h1>
-      {/* display question */}
-      <Questions onChecked={onChecked}/>
 
-      <div className='grid'>
-          { trace > 0 ? <button className='btn prev' onClick={onPrev}>Previous</button> : <div></div>}
-        <button className='btn next' onClick={onNext}>Next</button>
+    
+      <Questions onChecked={onChecked} />
+
+      <div className="grid">
+        
+        {trace > 0 && (
+          <button className="btn prev" onClick={onPrev}>
+            Previous
+          </button>
+        )}
+
+        {/* Next button */}
+        <button className="btn next" onClick={onNext}>
+          Next
+        </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Quiz;
